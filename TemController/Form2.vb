@@ -26,10 +26,14 @@ Public Class Form2
             End If
         Next
 
+        Chart1.ChartAreas(0).AxisX.Title = "時間 [hh:mm]"
+        Chart1.ChartAreas(0).AxisY.Title = "温度 [K]"
+
         '目盛りの表記をHH:mmに変更
         Chart1.ChartAreas(0).AxisX.LabelStyle.Format = "HH:mm"
         Chart1.ChartAreas(0).AxisY.IsStartedFromZero = False
         Chart1.ChartAreas(0).RecalculateAxesScale()
+
     End Sub
 
     Private Sub UpdateGraphButton_Click(sender As Object, e As EventArgs) Handles UpdateGraphButton.Click

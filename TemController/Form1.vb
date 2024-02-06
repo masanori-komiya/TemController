@@ -18,7 +18,8 @@ Public Class Form1
     Private strItem() As String = {"HI", "MID", "LOW"}
     Private s1, s2, s3 As String
     Private ReMSG As String
-    Private Const MaxDataPoints As Integer = 3600
+    Private Const MaxDataPoints As Integer = 21600
+    Private count As Integer
 
     Private result As Double
 
@@ -121,7 +122,13 @@ Public Class Form1
             ' 値があればDoble型に変換し、datapointに保存
             Dim resultB As Double
             If Double.TryParse(Me.ChannelB, Globalization.NumberStyles.Any, Globalization.CultureInfo.InvariantCulture, resultB) Then
-                dataPoint.TemperatureB = resultB
+                '最初は値が飛ぶため数点捨てる
+                Me.count += 1
+                If count > 3 Then
+                    dataPoint.TemperatureB = resultB
+                End If
+            Else
+                Me.count = 0
             End If
 
             'Time,TemperatureA, TemperatureBの値を持つdatapointを配列TemperatureDataListに0番から追加
@@ -136,6 +143,10 @@ Public Class Form1
             Me.Timer1.Stop()
             LogError($"Error during timer tick. {ex.Message}")
         End Try
+    End Sub
+
+    Private Sub reload_Click(sender As Object, e As EventArgs) Handles reload.Click
+        Me.Form1_Refresh()
     End Sub
 
     Private Sub ComSend_Click(sender As Object, e As EventArgs) Handles ComSend.Click

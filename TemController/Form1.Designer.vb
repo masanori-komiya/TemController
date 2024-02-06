@@ -47,6 +47,7 @@ Partial Class Form1
         Me.ComSend = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Graph_button = New System.Windows.Forms.Button()
+        Me.reload = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ChannelAText
@@ -61,7 +62,6 @@ Partial Class Form1
         'ChannelBText
         '
         Me.ChannelBText.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ChannelBText.Enabled = False
         Me.ChannelBText.Location = New System.Drawing.Point(104, 59)
         Me.ChannelBText.Name = "ChannelBText"
         Me.ChannelBText.ReadOnly = True
@@ -100,7 +100,6 @@ Partial Class Form1
         'PowerText
         '
         Me.PowerText.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.PowerText.Enabled = False
         Me.PowerText.Location = New System.Drawing.Point(104, 95)
         Me.PowerText.Name = "PowerText"
         Me.PowerText.ReadOnly = True
@@ -254,11 +253,21 @@ Partial Class Form1
         Me.Graph_button.Text = "グラフ"
         Me.Graph_button.UseVisualStyleBackColor = True
         '
+        'reload
+        '
+        Me.reload.Location = New System.Drawing.Point(339, 204)
+        Me.reload.Name = "reload"
+        Me.reload.Size = New System.Drawing.Size(75, 39)
+        Me.reload.TabIndex = 23
+        Me.reload.Text = "更新"
+        Me.reload.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(488, 373)
+        Me.Controls.Add(Me.reload)
         Me.Controls.Add(Me.Graph_button)
         Me.Controls.Add(Me.ComSend)
         Me.Controls.Add(Me.RR_Button)
@@ -313,4 +322,5 @@ Partial Class Form1
     Friend WithEvents ComSend As Button
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Graph_button As Button
+    Friend WithEvents reload As Button
 End Class
