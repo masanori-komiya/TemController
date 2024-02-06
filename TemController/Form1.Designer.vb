@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.ChannelAText = New System.Windows.Forms.TextBox()
         Me.ChannelBText = New System.Windows.Forms.MaskedTextBox()
         Me.SetPointText = New System.Windows.Forms.MaskedTextBox()
@@ -48,6 +49,7 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Graph_button = New System.Windows.Forms.Button()
         Me.reload = New System.Windows.Forms.Button()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'ChannelAText
@@ -246,7 +248,7 @@ Partial Class Form1
         '
         'Graph_button
         '
-        Me.Graph_button.Location = New System.Drawing.Point(253, 44)
+        Me.Graph_button.Location = New System.Drawing.Point(265, 34)
         Me.Graph_button.Name = "Graph_button"
         Me.Graph_button.Size = New System.Drawing.Size(70, 33)
         Me.Graph_button.TabIndex = 22
@@ -255,18 +257,29 @@ Partial Class Form1
         '
         'reload
         '
-        Me.reload.Location = New System.Drawing.Point(339, 204)
+        Me.reload.Location = New System.Drawing.Point(390, 217)
         Me.reload.Name = "reload"
-        Me.reload.Size = New System.Drawing.Size(75, 39)
+        Me.reload.Size = New System.Drawing.Size(65, 26)
         Me.reload.TabIndex = 23
-        Me.reload.Text = "更新"
+        Me.reload.Text = "表示更新"
         Me.reload.UseVisualStyleBackColor = True
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(267, 81)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(100, 16)
+        Me.CheckBox1.TabIndex = 24
+        Me.CheckBox1.Text = "温度データ保存"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(488, 373)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.reload)
         Me.Controls.Add(Me.Graph_button)
         Me.Controls.Add(Me.ComSend)
@@ -291,6 +304,7 @@ Partial Class Form1
         Me.Controls.Add(Me.SetPointText)
         Me.Controls.Add(Me.ChannelBText)
         Me.Controls.Add(Me.ChannelAText)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "TemperatureController"
         Me.ResumeLayout(False)
@@ -323,4 +337,5 @@ Partial Class Form1
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Graph_button As Button
     Friend WithEvents reload As Button
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

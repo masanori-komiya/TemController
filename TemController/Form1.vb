@@ -3,6 +3,9 @@ Imports System.Runtime.Remoting
 Imports Ivi.Visa.Interop
 Imports TemController.TemperatureDataPoint
 Imports TemController.Form2
+Imports System.IO
+Imports System.Text
+Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class Form1
     Public TemperatureDataList As New List(Of TemperatureDataPoint)
@@ -18,10 +21,12 @@ Public Class Form1
     Private strItem() As String = {"HI", "MID", "LOW"}
     Private s1, s2, s3 As String
     Private ReMSG As String
-    Private Const MaxDataPoints As Integer = 21600
+    Private Const MaxDataPoints As Integer = 43200
     Private count As Integer
-
+    Private Const DataPath As String = "./温度データ"
+    Private filename As String
     Private result As Double
+
 
     Private Sub LogError(errorMessage As String)
         MessageBox.Show($"Error: {errorMessage}")
@@ -139,6 +144,10 @@ Public Class Form1
                 TemperatureDataList.RemoveAt(0)
             End If
 
+            If CheckBox1.Checked Then
+                Me.SaveDataPointToCSV(dataPoint)
+            End If
+
         Catch ex As Exception
             Me.Timer1.Stop()
             LogError($"Error during timer tick. {ex.Message}")
@@ -147,6 +156,36 @@ Public Class Form1
 
     Private Sub reload_Click(sender As Object, e As EventArgs) Handles reload.Click
         Me.Form1_Refresh()
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            Dim StartTime As DateTime = DateTime.Now
+            Me.filename = Path.Combine(DataPath, $"{StartTime.ToString("yyyyMMddHHmmss")}.csv")
+            'StreamWrite(False)でファイルを作成または上書き
+            Try
+                Using sw As New StreamWriter(Me.filename, False, System.Text.Encoding.UTF8)
+                    sw.WriteLine("Time,TemperatureA,TemperatureB")
+                End Using
+            Catch ex As Exception
+                LogError($"Error while creating the CSV file. {ex.Message}")
+            End Try
+        End If
+    End Sub
+
+    Private Sub SaveDataPointToCSV(dataPoint As TemperatureDataPoint)
+        Try
+            ' StreamWireter(True)で既存のファイルに追加
+            Using sw As New StreamWriter(Me.filename, True, System.Text.Encoding.UTF8)
+                sw.WriteLine($"{dataPoint.Time},{dataPoint.TemperatureA},{dataPoint.TemperatureB}")
+            End Using
+
+        Catch ex As Exception
+            LogError($"Error while saving data point to CSV. {ex.Message}")
+            CheckBox1.Checked = False
+            Exit Sub
+        End Try
+
     End Sub
 
     Private Sub ComSend_Click(sender As Object, e As EventArgs) Handles ComSend.Click
@@ -169,11 +208,34 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub OpenGraph_Button_Click(sender As Object, e As EventArgs) Handles Graph_button.Click
+    Private Async Sub OpenGraph_Button_Click(sender As Object, e As EventArgs) Handles Graph_button.Click
         ' Form2を開くボタンがクリックされたとき
-        Dim form2 As New Form2()
-        form2.SetTemperatureData(TemperatureDataList) ' TemperatureDataListをForm2に渡す
-        form2.Show()
+        If Me.TemperatureDataList.Count > 1 Then
+            Dim form2 As New Form2()
+            form2.SetTemperatureData(Me.TemperatureDataList) ' TemperatureDataListをForm2に渡す
+            form2.Show()
+        Else
+            'データが無い時はグラフを表示せずに待機
+            DirectCast(sender, Button).Enabled = False
+            Dim i As Integer = 0
+            While Me.TemperatureDataList.Count < 2 And i <= 6
+                Await Task.Run(
+                    Sub()
+                        System.Threading.Thread.Sleep(1000)
+                    End Sub
+                    )
+                i = i + 1
+            End While
+
+            If i >= 6 Then
+                MessageBox.Show("データがありません")
+            Else
+                Dim form2 As New Form2()
+                form2.SetTemperatureData(Me.TemperatureDataList) ' TemperatureDataListをForm2に渡す
+                form2.Show()
+            End If
+            DirectCast(sender, Button).Enabled = True
+        End If
     End Sub
 
 End Class
