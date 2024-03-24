@@ -137,6 +137,7 @@ Public Class Form1
         Me.SendMSG(Me.s6)
     End Sub
 
+
     Private Sub DButton_Click(sender As Object, e As EventArgs) Handles DButton.Click
         Me.s7 = String.Concat("LOOP 1: DGAIN ", Me.DTextBox.Text)
         Me.SendMSG(Me.s7)
@@ -146,7 +147,7 @@ Public Class Form1
     Private Sub SendMSG(msg)
         Try
             Me.CTC.WriteString(msg)
-            MessageBox.Show("設定が完了しました。")
+            MessageBox.Show("設定を送信しました。")
             Me.Form1_Refresh()
         Catch ex As Exception
             LogError($"Error while sending. {ex.Message}")
@@ -252,7 +253,7 @@ Public Class Form1
         Else
             Try
                 Me.CTC.WriteString(Me.ComText.Text)
-                MessageBox.Show("設定が完了しました。")
+                MessageBox.Show("設定を送信しました。")
                 Me.Form1_Refresh()
             Catch ex As Exception
                 LogError($"Error during Sending. {ex.Message}")

@@ -320,9 +320,9 @@ Partial Class Form1
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(72, 325)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(23, 12)
+        Me.Label13.Size = New System.Drawing.Size(125, 12)
         Me.Label13.TabIndex = 28
-        Me.Label13.Text = "PID"
+        Me.Label13.Text = "PID　設定範囲 0～1000"
         '
         'Label14
         '
