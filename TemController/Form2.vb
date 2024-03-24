@@ -9,6 +9,8 @@ Public Class Form2
     Public Max As Double
     Public Min As Double
     Private LastTime As DateTime
+
+
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Chartのフォーマットを設定
         Chart1.ChartAreas(0).AxisX.Title = "時間 [hh:mm]"
@@ -41,8 +43,8 @@ Public Class Form2
                 Chart1.Series("ChannelB").Points.AddXY(dataPoint.Time, dataPoint.TemperatureB)
             End If
         Next
-        UpdateGraphScale()
         Me.LastTime = dataList.Last().Time
+        UpdateGraphScale()
     End Sub
 
     Private Sub UpdateGraphButton_Click(sender As Object, e As EventArgs) Handles UpdateGraphButton.Click
@@ -51,6 +53,7 @@ Public Class Form2
     End Sub
 
     Public Sub UpdateGraphScale()
+        '縦軸目盛り範囲設定
         If Me.Flag = 0 Then
             Chart1.ChartAreas(0).AxisY.Minimum = Double.NaN
             Chart1.ChartAreas(0).AxisY.Maximum = Double.NaN
@@ -60,6 +63,17 @@ Public Class Form2
         Else
             Chart1.ChartAreas(0).AxisY.Maximum = Me.Max
             Chart1.ChartAreas(0).AxisY.Minimum = Me.Min
+        End If
+        '横軸目盛り範囲設定
+        If RadioButton1.Checked Then
+            Dim twoHoursAgo As DateTime = Me.LastTime.AddHours(-2)
+            Chart1.ChartAreas(0).AxisX.Minimum = twoHoursAgo.ToOADate()
+        ElseIf RadioButton2.Checked Then
+            Dim sixHoursAgo As DateTime = Me.LastTime.AddHours(-6)
+            Chart1.ChartAreas(0).AxisX.Minimum = sixHoursAgo.ToOADate()
+        Else
+            Chart1.ChartAreas(0).AxisX.Minimum = Double.NaN
+            Chart1.ChartAreas(0).AxisX.Maximum = Double.NaN
         End If
     End Sub
 

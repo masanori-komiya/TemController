@@ -50,6 +50,21 @@ Partial Class Form1
         Me.Graph_button = New System.Windows.Forms.Button()
         Me.reload = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.ComboBoxControlType = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.ControlTypeButton = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.PTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.ITextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.DTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.PButton = New System.Windows.Forms.Button()
+        Me.IButton = New System.Windows.Forms.Button()
+        Me.DButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ChannelAText
@@ -79,14 +94,14 @@ Partial Class Form1
         '
         'RampText
         '
-        Me.RampText.Location = New System.Drawing.Point(104, 269)
+        Me.RampText.Location = New System.Drawing.Point(104, 288)
         Me.RampText.Name = "RampText"
         Me.RampText.Size = New System.Drawing.Size(104, 19)
         Me.RampText.TabIndex = 3
         '
         'ComText
         '
-        Me.ComText.Location = New System.Drawing.Point(104, 311)
+        Me.ComText.Location = New System.Drawing.Point(104, 457)
         Me.ComText.Name = "ComText"
         Me.ComText.Size = New System.Drawing.Size(199, 19)
         Me.ComText.TabIndex = 4
@@ -156,7 +171,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(36, 274)
+        Me.Label6.Location = New System.Drawing.Point(36, 291)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(62, 12)
         Me.Label6.TabIndex = 12
@@ -165,7 +180,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(28, 316)
+        Me.Label7.Location = New System.Drawing.Point(28, 461)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(71, 12)
         Me.Label7.TabIndex = 13
@@ -201,7 +216,7 @@ Partial Class Form1
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(211, 274)
+        Me.Label11.Location = New System.Drawing.Point(211, 292)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(36, 12)
         Me.Label11.TabIndex = 17
@@ -227,7 +242,7 @@ Partial Class Form1
         '
         'RR_Button
         '
-        Me.RR_Button.Location = New System.Drawing.Point(253, 267)
+        Me.RR_Button.Location = New System.Drawing.Point(253, 286)
         Me.RR_Button.Name = "RR_Button"
         Me.RR_Button.Size = New System.Drawing.Size(44, 23)
         Me.RR_Button.TabIndex = 20
@@ -236,7 +251,7 @@ Partial Class Form1
         '
         'ComSend
         '
-        Me.ComSend.Location = New System.Drawing.Point(310, 310)
+        Me.ComSend.Location = New System.Drawing.Point(309, 455)
         Me.ComSend.Name = "ComSend"
         Me.ComSend.Size = New System.Drawing.Size(44, 23)
         Me.ComSend.TabIndex = 21
@@ -257,7 +272,7 @@ Partial Class Form1
         '
         'reload
         '
-        Me.reload.Location = New System.Drawing.Point(390, 217)
+        Me.reload.Location = New System.Drawing.Point(452, 394)
         Me.reload.Name = "reload"
         Me.reload.Size = New System.Drawing.Size(65, 26)
         Me.reload.TabIndex = 23
@@ -274,11 +289,155 @@ Partial Class Form1
         Me.CheckBox1.Text = "温度データ保存"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
+        'ComboBoxControlType
+        '
+        Me.ComboBoxControlType.FormattingEnabled = True
+        Me.ComboBoxControlType.Location = New System.Drawing.Point(104, 243)
+        Me.ComboBoxControlType.Name = "ComboBoxControlType"
+        Me.ComboBoxControlType.Size = New System.Drawing.Size(104, 20)
+        Me.ComboBoxControlType.TabIndex = 25
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(24, 247)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(71, 12)
+        Me.Label12.TabIndex = 26
+        Me.Label12.Text = "Control Type"
+        '
+        'ControlTypeButton
+        '
+        Me.ControlTypeButton.Location = New System.Drawing.Point(219, 240)
+        Me.ControlTypeButton.Name = "ControlTypeButton"
+        Me.ControlTypeButton.Size = New System.Drawing.Size(44, 23)
+        Me.ControlTypeButton.TabIndex = 27
+        Me.ControlTypeButton.Text = "Set"
+        Me.ControlTypeButton.UseVisualStyleBackColor = True
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(72, 325)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(23, 12)
+        Me.Label13.TabIndex = 28
+        Me.Label13.Text = "PID"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(60, 348)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(35, 12)
+        Me.Label14.TabIndex = 29
+        Me.Label14.Text = "PGain"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(64, 374)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(31, 12)
+        Me.Label15.TabIndex = 30
+        Me.Label15.Text = "IGain"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(59, 400)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(36, 12)
+        Me.Label16.TabIndex = 31
+        Me.Label16.Text = "DGain"
+        '
+        'PTextBox
+        '
+        Me.PTextBox.HidePromptOnLeave = True
+        Me.PTextBox.Location = New System.Drawing.Point(104, 345)
+        Me.PTextBox.Name = "PTextBox"
+        Me.PTextBox.Size = New System.Drawing.Size(104, 19)
+        Me.PTextBox.TabIndex = 32
+        '
+        'ITextBox
+        '
+        Me.ITextBox.Location = New System.Drawing.Point(104, 370)
+        Me.ITextBox.Name = "ITextBox"
+        Me.ITextBox.Size = New System.Drawing.Size(104, 19)
+        Me.ITextBox.TabIndex = 34
+        '
+        'DTextBox
+        '
+        Me.DTextBox.Location = New System.Drawing.Point(104, 396)
+        Me.DTextBox.Name = "DTextBox"
+        Me.DTextBox.Size = New System.Drawing.Size(104, 19)
+        Me.DTextBox.TabIndex = 35
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(213, 374)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(23, 12)
+        Me.Label17.TabIndex = 36
+        Me.Label17.Text = "sec"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(213, 400)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(23, 12)
+        Me.Label18.TabIndex = 37
+        Me.Label18.Text = "sec"
+        '
+        'PButton
+        '
+        Me.PButton.Location = New System.Drawing.Point(219, 343)
+        Me.PButton.Name = "PButton"
+        Me.PButton.Size = New System.Drawing.Size(44, 23)
+        Me.PButton.TabIndex = 38
+        Me.PButton.Text = "Set"
+        Me.PButton.UseVisualStyleBackColor = True
+        '
+        'IButton
+        '
+        Me.IButton.Location = New System.Drawing.Point(247, 369)
+        Me.IButton.Name = "IButton"
+        Me.IButton.Size = New System.Drawing.Size(44, 23)
+        Me.IButton.TabIndex = 39
+        Me.IButton.Text = "Set"
+        Me.IButton.UseVisualStyleBackColor = True
+        '
+        'DButton
+        '
+        Me.DButton.Location = New System.Drawing.Point(247, 396)
+        Me.DButton.Name = "DButton"
+        Me.DButton.Size = New System.Drawing.Size(44, 23)
+        Me.DButton.TabIndex = 40
+        Me.DButton.Text = "Set"
+        Me.DButton.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(488, 373)
+        Me.ClientSize = New System.Drawing.Size(561, 513)
+        Me.Controls.Add(Me.DButton)
+        Me.Controls.Add(Me.IButton)
+        Me.Controls.Add(Me.PButton)
+        Me.Controls.Add(Me.Label18)
+        Me.Controls.Add(Me.Label17)
+        Me.Controls.Add(Me.DTextBox)
+        Me.Controls.Add(Me.ITextBox)
+        Me.Controls.Add(Me.PTextBox)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.ControlTypeButton)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.ComboBoxControlType)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.reload)
         Me.Controls.Add(Me.Graph_button)
@@ -338,4 +497,19 @@ Partial Class Form1
     Friend WithEvents Graph_button As Button
     Friend WithEvents reload As Button
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents ComboBoxControlType As ComboBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents ControlTypeButton As Button
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents PTextBox As MaskedTextBox
+    Friend WithEvents ITextBox As MaskedTextBox
+    Friend WithEvents DTextBox As MaskedTextBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents PButton As Button
+    Friend WithEvents IButton As Button
+    Friend WithEvents DButton As Button
 End Class

@@ -17,9 +17,12 @@ Public Class Form1
     Private Ramp As String
     Private SetPoint As String
     Private Power As String
+    Private P, I, D As String
     Private Const TimerInterval As Integer = 2000
     Private strItem() As String = {"HI", "MID", "LOW"}
-    Private s1, s2, s3 As String
+    Private ControlTypeItem() As String = {"OFF", "PID", "Manual", "PIDTable", "RAMPP"}
+    Private ControlType As String
+    Private s1, s2, s3, s4, s5, s6, s7 As String
     Private ReMSG As String
     Private Const MaxDataPoints As Integer = 43200
     Private count As Integer
@@ -45,6 +48,9 @@ Public Class Form1
             Me.CTC.WriteString("LOOP 1:RANGE?")
             Me.HeaterRange = Me.CTC.ReadString()
 
+            Me.CTC.WriteString("LOOP 1:TYPE?")
+            Me.ControlType = Me.CTC.ReadString()
+
             Me.CTC.WriteString("LOOP 1:RATE?")
             Me.Ramp = Me.CTC.ReadString()
 
@@ -54,6 +60,14 @@ Public Class Form1
             Me.CTC.WriteString("LOOP 1:OUTPWR?")
             Me.Power = Me.CTC.ReadString()
 
+            Me.CTC.WriteString("LOOP 1:PGAIN?")
+            Me.P = Me.CTC.ReadString()
+
+            Me.CTC.WriteString("LOOP 1:IGAIN?")
+            Me.I = Me.CTC.ReadString()
+
+            Me.CTC.WriteString("LOOP 1:DGAIN?")
+            Me.D = Me.CTC.ReadString()
         Catch ex As Exception
             LogError($"Failed to connect to the instrument. {ex.Message}")
         End Try
@@ -65,12 +79,23 @@ Public Class Form1
         Me.ChannelBText.Text = Me.ChannelB
         Me.PowerText.Text = Me.Power
         Me.ComboBox1.Text = Me.HeaterRange
+        If Me.ControlType = "TABLE" Then
+            Me.ComboBoxControlType.Text = "PIDTable"
+        ElseIf Me.ControlType = "MAN" Then
+            Me.ComboBoxControlType.Text = "Manual"
+        Else
+            Me.ComboBoxControlType.Text = Me.ControlType
+        End If
         Me.RampText.Text = Me.Ramp
         Me.SetPointText.Text = Me.SetPoint
+        Me.PTextBox.Text = Me.P
+        Me.ITextBox.Text = Me.I
+        Me.DTextBox.Text = Me.D
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ComboBox1.Items.AddRange(Me.strItem)
+        Me.ComboBoxControlType.Items.AddRange(Me.ControlTypeItem)
         Me.Form1_Refresh()
         Me.Timer1.Interval = TimerInterval
         Me.Timer1.Start()
@@ -90,6 +115,33 @@ Public Class Form1
         Me.s3 = String.Concat("LOOP 1:RATE ", Me.RampText.Text)
         Me.SendMSG(Me.s3)
     End Sub
+    Private Sub ControlTypeButton_Click(sender As Object, e As EventArgs) Handles ControlTypeButton.Click
+        If Me.ComboBoxControlType.SelectedItem = "PIDTable" Then
+            Me.s4 = "LOOP 1:TYPE TABLE"
+        ElseIf Me.ComboBoxControlType.SelectedItem = "Manual" Then
+            Me.s4 = "LOOP 1:TYPE MAN"
+        Else
+            Me.s4 = String.Concat("LOOP 1:TYPE ", Me.ComboBoxControlType.SelectedItem.ToString)
+        End If
+        Me.SendMSG(Me.s4)
+    End Sub
+
+
+    Private Sub PButton_Click(sender As Object, e As EventArgs) Handles PButton.Click
+        Me.s5 = String.Concat("LOOP 1: PGAIN ", Me.PTextBox.Text)
+        Me.SendMSG(Me.s5)
+    End Sub
+
+    Private Sub IButton_Click(sender As Object, e As EventArgs) Handles IButton.Click
+        Me.s6 = String.Concat("LOOP 1: IGAIN ", Me.ITextBox.Text)
+        Me.SendMSG(Me.s6)
+    End Sub
+
+    Private Sub DButton_Click(sender As Object, e As EventArgs) Handles DButton.Click
+        Me.s7 = String.Concat("LOOP 1: DGAIN ", Me.DTextBox.Text)
+        Me.SendMSG(Me.s7)
+    End Sub
+
 
     Private Sub SendMSG(msg)
         Try
