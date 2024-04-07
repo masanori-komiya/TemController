@@ -147,7 +147,7 @@ Public Class Form1
     Private Sub SendMSG(msg)
         Try
             Me.CTC.WriteString(msg)
-            MessageBox.Show("設定を送信しました。")
+            MessageBox.Show($"設定を送信しました。{vbCrLf} {msg}")
             Me.Form1_Refresh()
         Catch ex As Exception
             LogError($"Error while sending. {ex.Message}")

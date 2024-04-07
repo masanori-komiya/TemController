@@ -37,10 +37,20 @@ Public Class Form2
         For Each dataPoint In dataList
             If dataPoint.TemperatureA <> Nothing Then
                 Chart1.Series("ChannelA").Points.AddXY(dataPoint.Time, dataPoint.TemperatureA)
+            Else
+                Chart1.Series("ChannelA").Points.AddXY(dataPoint.Time, 0)
             End If
 
             If dataPoint.TemperatureB <> Nothing Then
                 Chart1.Series("ChannelB").Points.AddXY(dataPoint.Time, dataPoint.TemperatureB)
+            Else
+                Chart1.Series("ChannelB").Points.AddXY(dataPoint.Time, 0)
+            End If
+        Next
+        '値が0なら折れ線を繋げない。
+        For Each point As DataPoint In Chart1.Series("ChannelB").Points
+            If point.YValues(0) = 0 Then
+                point.IsEmpty = True
             End If
         Next
         Me.LastTime = dataList.Last().Time
