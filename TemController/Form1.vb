@@ -128,18 +128,18 @@ Public Class Form1
 
 
     Private Sub PButton_Click(sender As Object, e As EventArgs) Handles PButton.Click
-        Me.s5 = String.Concat("LOOP 1:PGAIN ", Me.PTextBox.Text)
+        Me.s5 = String.Concat("LOOP 1: PGAIN ", Me.PTextBox.Text)
         Me.SendMSG(Me.s5)
     End Sub
 
     Private Sub IButton_Click(sender As Object, e As EventArgs) Handles IButton.Click
-        Me.s6 = String.Concat("LOOP 1:IGAIN ", Me.ITextBox.Text)
+        Me.s6 = String.Concat("LOOP 1: IGAIN ", Me.ITextBox.Text)
         Me.SendMSG(Me.s6)
     End Sub
 
 
     Private Sub DButton_Click(sender As Object, e As EventArgs) Handles DButton.Click
-        Me.s7 = String.Concat("LOOP 1:DGAIN ", Me.DTextBox.Text)
+        Me.s7 = String.Concat("LOOP 1: DGAIN ", Me.DTextBox.Text)
         Me.SendMSG(Me.s7)
     End Sub
 
