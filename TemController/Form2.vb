@@ -36,7 +36,7 @@ Public Class Form2
 
         ' グラフにデータを登録
         Dim dataFlag As Boolean = False
-        Dim dataIndex As Integer = 0
+        Dim dataIndex As Integer
 
         For Each dataPoint In dataList
 
