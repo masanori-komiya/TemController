@@ -34,25 +34,21 @@ Public Class Form2
         Chart1.Series("ChannelB").ChartType = SeriesChartType.Line
 
         ' データを登録
-        For Each dataPoint In dataList
+        For i As Integer = 0 To dataList.Count - 1
+            Dim dataPoint = dataList(i)
             If dataPoint.TemperatureA <> Nothing Then
                 Chart1.Series("ChannelA").Points.AddXY(dataPoint.Time, dataPoint.TemperatureA)
-            Else
-                Chart1.Series("ChannelA").Points.AddXY(dataPoint.Time, 0)
             End If
 
             If dataPoint.TemperatureB <> Nothing Then
                 Chart1.Series("ChannelB").Points.AddXY(dataPoint.Time, dataPoint.TemperatureB)
             Else
+                'データがないところでは折れ線を表示しない。
                 Chart1.Series("ChannelB").Points.AddXY(dataPoint.Time, 0)
+                Chart1.Series("ChannelB").Points(i).IsEmpty = True
             End If
         Next
-        '値が0なら折れ線を繋げない。
-        For Each point As DataPoint In Chart1.Series("ChannelB").Points
-            If point.YValues(0) = 0 Then
-                point.IsEmpty = True
-            End If
-        Next
+
         Me.LastTime = dataList.Last().Time
         UpdateGraphScale()
     End Sub
