@@ -3,6 +3,7 @@ Imports TemController.TemperatureDataPoint
 Imports TemController.Form1
 Imports TemController.Form3
 Imports System.IO
+Imports System.Drawing.Text
 Public Class Form2
     '手動かオードかを区別するためのフラッグ、初期はオート
     Private Flag As Integer = 0
@@ -33,19 +34,29 @@ Public Class Form2
         Chart1.Series.Add("ChannelB")
         Chart1.Series("ChannelB").ChartType = SeriesChartType.Line
 
-        ' データを登録
-        For i As Integer = 0 To dataList.Count - 1
-            Dim dataPoint = dataList(i)
+        ' グラフにデータを登録
+        Dim dataFlag As Boolean = False
+        Dim dataIndex As Integer = 0
+
+        For Each dataPoint In dataList
+
+            'dataAの登録
             If dataPoint.TemperatureA <> Nothing Then
                 Chart1.Series("ChannelA").Points.AddXY(dataPoint.Time, dataPoint.TemperatureA)
             End If
 
+            'dataBの登録
             If dataPoint.TemperatureB <> Nothing Then
+                dataFlag = True
                 Chart1.Series("ChannelB").Points.AddXY(dataPoint.Time, dataPoint.TemperatureB)
             Else
-                'データがないところでは折れ線を表示しない。
-                Chart1.Series("ChannelB").Points.AddXY(dataPoint.Time, 0)
-                Chart1.Series("ChannelB").Points(i).IsEmpty = True
+                '連続データがないところで終了データを追加し、その最後のデータにemptyを適用させ折れ線を途切れさせる
+                If dataFlag Then
+                    Chart1.Series("ChannelB").Points.AddXY(dataPoint.Time, 0)
+                    dataIndex = Chart1.Series("ChannelB").Points.Count
+                    Chart1.Series("ChannelB").Points(dataIndex).IsEmpty = True
+                    dataFlag = False
+                End If
             End If
         Next
 
