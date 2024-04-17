@@ -53,7 +53,7 @@ Public Class Form2
                 '連続データがないところで終了データを追加し、その最後のデータにemptyを適用させ折れ線を途切れさせる
                 If dataFlag Then
                     Chart1.Series("ChannelB").Points.AddXY(dataPoint.Time, 0)
-                    dataIndex = Chart1.Series("ChannelB").Points.Count
+                    dataIndex = Chart1.Series("ChannelB").Points.Count - 1
                     Chart1.Series("ChannelB").Points(dataIndex).IsEmpty = True
                     dataFlag = False
                 End If
