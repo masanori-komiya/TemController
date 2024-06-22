@@ -17,10 +17,10 @@ Public Class Form1
     Private Ramp As String
     Private SetPoint As String
     Private Power As String
-    Private P, I, D As String
+    Private PID As String
     Private Const TimerInterval As Integer = 2000
-    Private strItem() As String = {"HI", "MID", "LOW"}
-    Private ControlTypeItem() As String = {"OFF", "PID", "Manual", "PIDTable", "RAMPP"}
+    Private strItem() As String = {"Off", "Low", "Med", "High"}
+    Private ControlTypeItem() As String = {"PID", "RAMP", "ZONE", "MANUAL"}
     Private ControlType As String
     Private s1, s2, s3, s4, s5, s6, s7 As String
     Private ReMSG As String
@@ -39,58 +39,80 @@ Public Class Form1
         Try
             Me.CTC.IO = Me.RM.Open("GPIB0::12::INSTR")
 
-            Me.CTC.WriteString("INPUT? A")
+            Me.CTC.WriteString("KRDG? A")
             Me.ChannelA = Me.CTC.ReadString()
-
-            Me.CTC.WriteString("INPUT? B")
+            Me.CTC.WriteString("KRDG? B")
             Me.ChannelB = Me.CTC.ReadString()
 
-            Me.CTC.WriteString("LOOP 1:RANGE?")
+            Me.CTC.WriteString("RANGE? 1")
             Me.HeaterRange = Me.CTC.ReadString()
 
-            Me.CTC.WriteString("LOOP 1:TYPE?")
+            Me.CTC.WriteString("OUTMODE? 1")
             Me.ControlType = Me.CTC.ReadString()
 
-            Me.CTC.WriteString("LOOP 1:RATE?")
+            Me.CTC.WriteString("RAMP? 1")
             Me.Ramp = Me.CTC.ReadString()
 
-            Me.CTC.WriteString("LOOP 1:SETPT?")
+            Me.CTC.WriteString("SETP?")
             Me.SetPoint = Me.CTC.ReadString()
 
-            Me.CTC.WriteString("LOOP 1:OUTPWR?")
+            Me.CTC.WriteString("HTR? 1")
             Me.Power = Me.CTC.ReadString()
 
-            Me.CTC.WriteString("LOOP 1:PGAIN?")
-            Me.P = Me.CTC.ReadString()
+            Me.CTC.WriteString("PID? 1")
+            Me.PID = Me.CTC.ReadString()
 
-            Me.CTC.WriteString("LOOP 1:IGAIN?")
-            Me.I = Me.CTC.ReadString()
-
-            Me.CTC.WriteString("LOOP 1:DGAIN?")
-            Me.D = Me.CTC.ReadString()
         Catch ex As Exception
             LogError($"Failed to connect to the instrument. {ex.Message}")
         End Try
     End Sub
+    Private Function GetHeaterRangeValue(selectedText As String) As Integer
+        Select Case selectedText
+            Case "Off"
+                Return 0
+            Case "Low"
+                Return 1
+            Case "Med"
+                Return 2
+            Case "High"
+                Return 3
+            Case Else
+                ' 予期しない値の場合はデフォルトで0を返す
+                Return 0
+        End Select
+    End Function
+
+    ' 数値を"Off", "Low", "Med", "High"に変換する関数
+    Private Function GetHeaterRangeText(rangeValue As Integer) As String
+        Select Case rangeValue
+            Case 0
+                Return "Off"
+            Case 1
+                Return "Low"
+            Case 2
+                Return "Med"
+            Case 3
+                Return "High"
+            Case Else
+                ' 予期しない値の場合は空文字列を返す
+                Return String.Empty
+        End Select
+    End Function
 
     Private Sub Form1_Refresh()
         Me.ConnectToInstrument()
         Me.ChannelAText.Text = Me.ChannelA
         Me.ChannelBText.Text = Me.ChannelB
         Me.PowerText.Text = Me.Power
-        Me.ComboBox1.Text = Me.HeaterRange
-        If Me.ControlType = "TABLE" Then
-            Me.ComboBoxControlType.Text = "PIDTable"
-        ElseIf Me.ControlType = "MAN" Then
-            Me.ComboBoxControlType.Text = "Manual"
-        Else
-            Me.ComboBoxControlType.Text = Me.ControlType
+        ' HeaterRangeの数値を対応するテキストに変換して表示
+        Dim heaterRangeValue As Integer
+        If Integer.TryParse(Me.HeaterRange.Trim(), heaterRangeValue) Then
+            Me.ComboBox1.Text = GetHeaterRangeText(heaterRangeValue)
         End If
+        Me.ComboBoxControlType.Text = Me.ControlType
         Me.RampText.Text = Me.Ramp
         Me.SetPointText.Text = Me.SetPoint
-        Me.PTextBox.Text = Me.P
-        Me.ITextBox.Text = Me.I
-        Me.DTextBox.Text = Me.D
+        Me.PIDTextBox.Text = Me.PID
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -102,45 +124,30 @@ Public Class Form1
     End Sub
 
     Private Sub SP_Button_Click(sender As Object, e As EventArgs) Handles SP_Button.Click
-        Me.s1 = String.Concat("LOOP 1:SETPT ", Me.SetPointText.Text)
+        Me.s1 = String.Concat("SETP 1,", Me.SetPointText.Text, "\n")
         Me.SendMSG(Me.s1)
     End Sub
 
     Private Sub HR_Button_Click(sender As Object, e As EventArgs) Handles HR_Button.Click
-        Me.s2 = String.Concat("LOOP 1:RANGE ", Me.ComboBox1.SelectedItem.ToString)
+        Dim selectedRange As String = Me.ComboBox1.SelectedItem.ToString()
+        Dim rangeValue As Integer = GetHeaterRangeValue(selectedRange)
+        Me.s2 = String.Concat("RANGE 1,", Me.ComboBox1.SelectedItem.ToString, "\n")
         Me.SendMSG(Me.s2)
     End Sub
 
     Private Sub RR_Button_Click(sender As Object, e As EventArgs) Handles RR_Button.Click
-        Me.s3 = String.Concat("LOOP 1:RATE ", Me.RampText.Text)
+        Me.s3 = String.Concat("RAMP 1,", Me.RampText.Text, "\n")
         Me.SendMSG(Me.s3)
     End Sub
     Private Sub ControlTypeButton_Click(sender As Object, e As EventArgs) Handles ControlTypeButton.Click
-        If Me.ComboBoxControlType.SelectedItem = "PIDTable" Then
-            Me.s4 = "LOOP 1:TYPE TABLE"
-        ElseIf Me.ComboBoxControlType.SelectedItem = "Manual" Then
-            Me.s4 = "LOOP 1:TYPE MAN"
-        Else
-            Me.s4 = String.Concat("LOOP 1:TYPE ", Me.ComboBoxControlType.SelectedItem.ToString)
-        End If
+        Me.s3 = String.Concat("OUTMODE 1,", Me.RampText.Text, "\n")
         Me.SendMSG(Me.s4)
     End Sub
 
 
-    Private Sub PButton_Click(sender As Object, e As EventArgs) Handles PButton.Click
-        Me.s5 = String.Concat("LOOP 1:PGAIN ", Me.PTextBox.Text)
+    Private Sub PIDButton_Click(sender As Object, e As EventArgs) Handles PIDButton.Click
+        Me.s5 = String.Concat("PID 1,", Me.PIDTextBox.Text, "\n")
         Me.SendMSG(Me.s5)
-    End Sub
-
-    Private Sub IButton_Click(sender As Object, e As EventArgs) Handles IButton.Click
-        Me.s6 = String.Concat("LOOP 1:IGAIN ", Me.ITextBox.Text)
-        Me.SendMSG(Me.s6)
-    End Sub
-
-
-    Private Sub DButton_Click(sender As Object, e As EventArgs) Handles DButton.Click
-        Me.s7 = String.Concat("LOOP 1:DGAIN ", Me.DTextBox.Text)
-        Me.SendMSG(Me.s7)
     End Sub
 
 
@@ -154,13 +161,17 @@ Public Class Form1
         End Try
     End Sub
 
+    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
+
+    End Sub
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Try
-            Me.CTC.WriteString("INPUT? A")
+            Me.CTC.WriteString("KRDG? A")
             Me.ChannelA = Me.CTC.ReadString()
-            Me.CTC.WriteString("INPUT? B")
+            Me.CTC.WriteString("KRDG? B")
             Me.ChannelB = Me.CTC.ReadString()
-            Me.CTC.WriteString("LOOP 1:OUTPWR?")
+            Me.CTC.WriteString("HTR? 1")
             Me.Power = Me.CTC.ReadString()
             Me.ChannelAText.Text = Me.ChannelA
             Me.ChannelBText.Text = Me.ChannelB

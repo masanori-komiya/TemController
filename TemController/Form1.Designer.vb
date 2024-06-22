@@ -55,205 +55,219 @@ Partial Class Form1
         Me.ControlTypeButton = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.PTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.ITextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.DTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.PButton = New System.Windows.Forms.Button()
-        Me.IButton = New System.Windows.Forms.Button()
-        Me.DButton = New System.Windows.Forms.Button()
+        Me.PIDTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.PIDButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ChannelAText
         '
         Me.ChannelAText.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ChannelAText.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.ChannelAText.Location = New System.Drawing.Point(104, 34)
+        Me.ChannelAText.Location = New System.Drawing.Point(139, 42)
+        Me.ChannelAText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ChannelAText.Name = "ChannelAText"
-        Me.ChannelAText.Size = New System.Drawing.Size(104, 19)
+        Me.ChannelAText.Size = New System.Drawing.Size(137, 22)
         Me.ChannelAText.TabIndex = 0
         '
         'ChannelBText
         '
         Me.ChannelBText.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ChannelBText.Location = New System.Drawing.Point(104, 59)
+        Me.ChannelBText.Location = New System.Drawing.Point(139, 74)
+        Me.ChannelBText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ChannelBText.Name = "ChannelBText"
         Me.ChannelBText.ReadOnly = True
-        Me.ChannelBText.Size = New System.Drawing.Size(104, 19)
+        Me.ChannelBText.Size = New System.Drawing.Size(137, 22)
         Me.ChannelBText.TabIndex = 1
         '
         'SetPointText
         '
-        Me.SetPointText.Location = New System.Drawing.Point(104, 160)
+        Me.SetPointText.Location = New System.Drawing.Point(139, 200)
+        Me.SetPointText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SetPointText.Name = "SetPointText"
-        Me.SetPointText.Size = New System.Drawing.Size(104, 19)
+        Me.SetPointText.Size = New System.Drawing.Size(137, 22)
         Me.SetPointText.TabIndex = 2
         '
         'RampText
         '
-        Me.RampText.Location = New System.Drawing.Point(104, 288)
+        Me.RampText.Location = New System.Drawing.Point(139, 360)
+        Me.RampText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RampText.Name = "RampText"
-        Me.RampText.Size = New System.Drawing.Size(104, 19)
+        Me.RampText.Size = New System.Drawing.Size(137, 22)
         Me.RampText.TabIndex = 3
         '
         'ComText
         '
-        Me.ComText.Location = New System.Drawing.Point(104, 457)
+        Me.ComText.Location = New System.Drawing.Point(139, 498)
+        Me.ComText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ComText.Name = "ComText"
-        Me.ComText.Size = New System.Drawing.Size(199, 19)
+        Me.ComText.Size = New System.Drawing.Size(264, 22)
         Me.ComText.TabIndex = 4
         '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(104, 200)
+        Me.ComboBox1.Location = New System.Drawing.Point(139, 250)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(104, 20)
+        Me.ComboBox1.Size = New System.Drawing.Size(137, 23)
         Me.ComboBox1.TabIndex = 5
         '
         'PowerText
         '
         Me.PowerText.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.PowerText.Location = New System.Drawing.Point(104, 95)
+        Me.PowerText.Location = New System.Drawing.Point(139, 119)
+        Me.PowerText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PowerText.Name = "PowerText"
         Me.PowerText.ReadOnly = True
-        Me.PowerText.Size = New System.Drawing.Size(104, 19)
+        Me.PowerText.Size = New System.Drawing.Size(137, 22)
         Me.PowerText.TabIndex = 6
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(45, 39)
+        Me.Label1.Location = New System.Drawing.Point(60, 49)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(54, 12)
+        Me.Label1.Size = New System.Drawing.Size(68, 15)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "ChannelA"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(45, 65)
+        Me.Label2.Location = New System.Drawing.Point(60, 81)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(54, 12)
+        Me.Label2.Size = New System.Drawing.Size(69, 15)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "ChannelB"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(63, 100)
+        Me.Label3.Location = New System.Drawing.Point(84, 125)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(36, 12)
+        Me.Label3.Size = New System.Drawing.Size(47, 15)
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "Power"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(51, 164)
+        Me.Label4.Location = New System.Drawing.Point(68, 205)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(48, 12)
+        Me.Label4.Size = New System.Drawing.Size(62, 15)
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "SetPoint"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(24, 204)
+        Me.Label5.Location = New System.Drawing.Point(32, 255)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(75, 12)
+        Me.Label5.Size = New System.Drawing.Size(94, 15)
         Me.Label5.TabIndex = 11
         Me.Label5.Text = "Heater Range"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(36, 291)
+        Me.Label6.Location = New System.Drawing.Point(48, 364)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(62, 12)
+        Me.Label6.Size = New System.Drawing.Size(75, 15)
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "Ramp Rate"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(28, 461)
+        Me.Label7.Location = New System.Drawing.Point(48, 501)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(71, 12)
+        Me.Label7.Size = New System.Drawing.Size(88, 15)
         Me.Label7.TabIndex = 13
         Me.Label7.Text = "その他コマンド"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(211, 39)
+        Me.Label8.Location = New System.Drawing.Point(281, 49)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(12, 12)
+        Me.Label8.Size = New System.Drawing.Size(16, 15)
         Me.Label8.TabIndex = 14
         Me.Label8.Text = "K"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(211, 62)
+        Me.Label9.Location = New System.Drawing.Point(281, 78)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(12, 12)
+        Me.Label9.Size = New System.Drawing.Size(16, 15)
         Me.Label9.TabIndex = 15
         Me.Label9.Text = "K"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(211, 99)
+        Me.Label10.Location = New System.Drawing.Point(281, 124)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(17, 12)
+        Me.Label10.Size = New System.Drawing.Size(22, 15)
         Me.Label10.TabIndex = 16
         Me.Label10.Text = "％"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(211, 292)
+        Me.Label11.Location = New System.Drawing.Point(281, 365)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(36, 12)
+        Me.Label11.Size = New System.Drawing.Size(46, 15)
         Me.Label11.TabIndex = 17
         Me.Label11.Text = "K/min"
         '
         'SP_Button
         '
-        Me.SP_Button.Location = New System.Drawing.Point(219, 158)
+        Me.SP_Button.Location = New System.Drawing.Point(292, 198)
+        Me.SP_Button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SP_Button.Name = "SP_Button"
-        Me.SP_Button.Size = New System.Drawing.Size(44, 23)
+        Me.SP_Button.Size = New System.Drawing.Size(59, 29)
         Me.SP_Button.TabIndex = 18
         Me.SP_Button.Text = "Set"
         Me.SP_Button.UseVisualStyleBackColor = True
         '
         'HR_Button
         '
-        Me.HR_Button.Location = New System.Drawing.Point(219, 198)
+        Me.HR_Button.Location = New System.Drawing.Point(292, 248)
+        Me.HR_Button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.HR_Button.Name = "HR_Button"
-        Me.HR_Button.Size = New System.Drawing.Size(44, 23)
+        Me.HR_Button.Size = New System.Drawing.Size(59, 29)
         Me.HR_Button.TabIndex = 19
         Me.HR_Button.Text = "Set"
         Me.HR_Button.UseVisualStyleBackColor = True
         '
         'RR_Button
         '
-        Me.RR_Button.Location = New System.Drawing.Point(253, 286)
+        Me.RR_Button.Location = New System.Drawing.Point(337, 358)
+        Me.RR_Button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RR_Button.Name = "RR_Button"
-        Me.RR_Button.Size = New System.Drawing.Size(44, 23)
+        Me.RR_Button.Size = New System.Drawing.Size(59, 29)
         Me.RR_Button.TabIndex = 20
         Me.RR_Button.Text = "Set"
         Me.RR_Button.UseVisualStyleBackColor = True
         '
         'ComSend
         '
-        Me.ComSend.Location = New System.Drawing.Point(309, 455)
+        Me.ComSend.Location = New System.Drawing.Point(411, 494)
+        Me.ComSend.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ComSend.Name = "ComSend"
-        Me.ComSend.Size = New System.Drawing.Size(44, 23)
+        Me.ComSend.Size = New System.Drawing.Size(59, 29)
         Me.ComSend.TabIndex = 21
         Me.ComSend.Text = "Send"
         Me.ComSend.UseVisualStyleBackColor = True
@@ -263,18 +277,20 @@ Partial Class Form1
         '
         'Graph_button
         '
-        Me.Graph_button.Location = New System.Drawing.Point(265, 34)
+        Me.Graph_button.Location = New System.Drawing.Point(353, 42)
+        Me.Graph_button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Graph_button.Name = "Graph_button"
-        Me.Graph_button.Size = New System.Drawing.Size(70, 33)
+        Me.Graph_button.Size = New System.Drawing.Size(93, 41)
         Me.Graph_button.TabIndex = 22
         Me.Graph_button.Text = "グラフ"
         Me.Graph_button.UseVisualStyleBackColor = True
         '
         'reload
         '
-        Me.reload.Location = New System.Drawing.Point(452, 394)
+        Me.reload.Location = New System.Drawing.Point(603, 492)
+        Me.reload.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.reload.Name = "reload"
-        Me.reload.Size = New System.Drawing.Size(65, 26)
+        Me.reload.Size = New System.Drawing.Size(87, 32)
         Me.reload.TabIndex = 23
         Me.reload.Text = "表示更新"
         Me.reload.UseVisualStyleBackColor = True
@@ -282,9 +298,10 @@ Partial Class Form1
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(267, 81)
+        Me.CheckBox1.Location = New System.Drawing.Point(356, 101)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(100, 16)
+        Me.CheckBox1.Size = New System.Drawing.Size(123, 19)
         Me.CheckBox1.TabIndex = 24
         Me.CheckBox1.Text = "温度データ保存"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -292,25 +309,28 @@ Partial Class Form1
         'ComboBoxControlType
         '
         Me.ComboBoxControlType.FormattingEnabled = True
-        Me.ComboBoxControlType.Location = New System.Drawing.Point(104, 243)
+        Me.ComboBoxControlType.Location = New System.Drawing.Point(139, 304)
+        Me.ComboBoxControlType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ComboBoxControlType.Name = "ComboBoxControlType"
-        Me.ComboBoxControlType.Size = New System.Drawing.Size(104, 20)
+        Me.ComboBoxControlType.Size = New System.Drawing.Size(137, 23)
         Me.ComboBoxControlType.TabIndex = 25
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(24, 247)
+        Me.Label12.Location = New System.Drawing.Point(32, 309)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(71, 12)
+        Me.Label12.Size = New System.Drawing.Size(90, 15)
         Me.Label12.TabIndex = 26
         Me.Label12.Text = "Control Type"
         '
         'ControlTypeButton
         '
-        Me.ControlTypeButton.Location = New System.Drawing.Point(219, 240)
+        Me.ControlTypeButton.Location = New System.Drawing.Point(292, 300)
+        Me.ControlTypeButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ControlTypeButton.Name = "ControlTypeButton"
-        Me.ControlTypeButton.Size = New System.Drawing.Size(44, 23)
+        Me.ControlTypeButton.Size = New System.Drawing.Size(59, 29)
         Me.ControlTypeButton.TabIndex = 27
         Me.ControlTypeButton.Text = "Set"
         Me.ControlTypeButton.UseVisualStyleBackColor = True
@@ -318,121 +338,49 @@ Partial Class Form1
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(72, 325)
+        Me.Label13.Location = New System.Drawing.Point(96, 406)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(125, 12)
+        Me.Label13.Size = New System.Drawing.Size(160, 15)
         Me.Label13.TabIndex = 28
         Me.Label13.Text = "PID　設定範囲 0～1000"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(60, 348)
+        Me.Label14.Location = New System.Drawing.Point(86, 435)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(35, 12)
+        Me.Label14.Size = New System.Drawing.Size(36, 15)
         Me.Label14.TabIndex = 29
-        Me.Label14.Text = "PGain"
+        Me.Label14.Text = "P,I,D"
         '
-        'Label15
+        'PIDTextBox
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(64, 374)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(31, 12)
-        Me.Label15.TabIndex = 30
-        Me.Label15.Text = "IGain"
+        Me.PIDTextBox.HidePromptOnLeave = True
+        Me.PIDTextBox.Location = New System.Drawing.Point(139, 431)
+        Me.PIDTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PIDTextBox.Name = "PIDTextBox"
+        Me.PIDTextBox.Size = New System.Drawing.Size(209, 22)
+        Me.PIDTextBox.TabIndex = 32
         '
-        'Label16
+        'PIDButton
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(59, 400)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(36, 12)
-        Me.Label16.TabIndex = 31
-        Me.Label16.Text = "DGain"
-        '
-        'PTextBox
-        '
-        Me.PTextBox.HidePromptOnLeave = True
-        Me.PTextBox.Location = New System.Drawing.Point(104, 345)
-        Me.PTextBox.Name = "PTextBox"
-        Me.PTextBox.Size = New System.Drawing.Size(104, 19)
-        Me.PTextBox.TabIndex = 32
-        '
-        'ITextBox
-        '
-        Me.ITextBox.Location = New System.Drawing.Point(104, 370)
-        Me.ITextBox.Name = "ITextBox"
-        Me.ITextBox.Size = New System.Drawing.Size(104, 19)
-        Me.ITextBox.TabIndex = 34
-        '
-        'DTextBox
-        '
-        Me.DTextBox.Location = New System.Drawing.Point(104, 396)
-        Me.DTextBox.Name = "DTextBox"
-        Me.DTextBox.Size = New System.Drawing.Size(104, 19)
-        Me.DTextBox.TabIndex = 35
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(213, 374)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(23, 12)
-        Me.Label17.TabIndex = 36
-        Me.Label17.Text = "sec"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(213, 400)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(23, 12)
-        Me.Label18.TabIndex = 37
-        Me.Label18.Text = "sec"
-        '
-        'PButton
-        '
-        Me.PButton.Location = New System.Drawing.Point(219, 343)
-        Me.PButton.Name = "PButton"
-        Me.PButton.Size = New System.Drawing.Size(44, 23)
-        Me.PButton.TabIndex = 38
-        Me.PButton.Text = "Set"
-        Me.PButton.UseVisualStyleBackColor = True
-        '
-        'IButton
-        '
-        Me.IButton.Location = New System.Drawing.Point(247, 369)
-        Me.IButton.Name = "IButton"
-        Me.IButton.Size = New System.Drawing.Size(44, 23)
-        Me.IButton.TabIndex = 39
-        Me.IButton.Text = "Set"
-        Me.IButton.UseVisualStyleBackColor = True
-        '
-        'DButton
-        '
-        Me.DButton.Location = New System.Drawing.Point(247, 396)
-        Me.DButton.Name = "DButton"
-        Me.DButton.Size = New System.Drawing.Size(44, 23)
-        Me.DButton.TabIndex = 40
-        Me.DButton.Text = "Set"
-        Me.DButton.UseVisualStyleBackColor = True
+        Me.PIDButton.Location = New System.Drawing.Point(356, 428)
+        Me.PIDButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PIDButton.Name = "PIDButton"
+        Me.PIDButton.Size = New System.Drawing.Size(59, 29)
+        Me.PIDButton.TabIndex = 38
+        Me.PIDButton.Text = "Set"
+        Me.PIDButton.UseVisualStyleBackColor = True
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(561, 513)
-        Me.Controls.Add(Me.DButton)
-        Me.Controls.Add(Me.IButton)
-        Me.Controls.Add(Me.PButton)
-        Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.DTextBox)
-        Me.Controls.Add(Me.ITextBox)
-        Me.Controls.Add(Me.PTextBox)
-        Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.Label15)
+        Me.ClientSize = New System.Drawing.Size(748, 641)
+        Me.Controls.Add(Me.PIDButton)
+        Me.Controls.Add(Me.PIDTextBox)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.ControlTypeButton)
@@ -464,6 +412,7 @@ Partial Class Form1
         Me.Controls.Add(Me.ChannelBText)
         Me.Controls.Add(Me.ChannelAText)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Form1"
         Me.Text = "TemperatureController"
         Me.ResumeLayout(False)
@@ -502,14 +451,6 @@ Partial Class Form1
     Friend WithEvents ControlTypeButton As Button
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents PTextBox As MaskedTextBox
-    Friend WithEvents ITextBox As MaskedTextBox
-    Friend WithEvents DTextBox As MaskedTextBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents PButton As Button
-    Friend WithEvents IButton As Button
-    Friend WithEvents DButton As Button
+    Friend WithEvents PIDTextBox As MaskedTextBox
+    Friend WithEvents PIDButton As Button
 End Class
