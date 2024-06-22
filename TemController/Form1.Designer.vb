@@ -64,7 +64,7 @@ Partial Class Form1
         Me.ChannelAText.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ChannelAText.ForeColor = System.Drawing.SystemColors.WindowText
         Me.ChannelAText.Location = New System.Drawing.Point(139, 42)
-        Me.ChannelAText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ChannelAText.Margin = New System.Windows.Forms.Padding(4)
         Me.ChannelAText.Name = "ChannelAText"
         Me.ChannelAText.Size = New System.Drawing.Size(137, 22)
         Me.ChannelAText.TabIndex = 0
@@ -73,7 +73,7 @@ Partial Class Form1
         '
         Me.ChannelBText.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ChannelBText.Location = New System.Drawing.Point(139, 74)
-        Me.ChannelBText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ChannelBText.Margin = New System.Windows.Forms.Padding(4)
         Me.ChannelBText.Name = "ChannelBText"
         Me.ChannelBText.ReadOnly = True
         Me.ChannelBText.Size = New System.Drawing.Size(137, 22)
@@ -82,7 +82,7 @@ Partial Class Form1
         'SetPointText
         '
         Me.SetPointText.Location = New System.Drawing.Point(139, 200)
-        Me.SetPointText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SetPointText.Margin = New System.Windows.Forms.Padding(4)
         Me.SetPointText.Name = "SetPointText"
         Me.SetPointText.Size = New System.Drawing.Size(137, 22)
         Me.SetPointText.TabIndex = 2
@@ -90,7 +90,7 @@ Partial Class Form1
         'RampText
         '
         Me.RampText.Location = New System.Drawing.Point(139, 360)
-        Me.RampText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RampText.Margin = New System.Windows.Forms.Padding(4)
         Me.RampText.Name = "RampText"
         Me.RampText.Size = New System.Drawing.Size(137, 22)
         Me.RampText.TabIndex = 3
@@ -98,7 +98,7 @@ Partial Class Form1
         'ComText
         '
         Me.ComText.Location = New System.Drawing.Point(139, 498)
-        Me.ComText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComText.Margin = New System.Windows.Forms.Padding(4)
         Me.ComText.Name = "ComText"
         Me.ComText.Size = New System.Drawing.Size(264, 22)
         Me.ComText.TabIndex = 4
@@ -107,7 +107,7 @@ Partial Class Form1
         '
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(139, 250)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(137, 23)
         Me.ComboBox1.TabIndex = 5
@@ -116,7 +116,7 @@ Partial Class Form1
         '
         Me.PowerText.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.PowerText.Location = New System.Drawing.Point(139, 119)
-        Me.PowerText.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PowerText.Margin = New System.Windows.Forms.Padding(4)
         Me.PowerText.Name = "PowerText"
         Me.PowerText.ReadOnly = True
         Me.PowerText.Size = New System.Drawing.Size(137, 22)
@@ -185,7 +185,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(48, 501)
+        Me.Label7.Location = New System.Drawing.Point(42, 505)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(88, 15)
@@ -235,7 +235,7 @@ Partial Class Form1
         'SP_Button
         '
         Me.SP_Button.Location = New System.Drawing.Point(292, 198)
-        Me.SP_Button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SP_Button.Margin = New System.Windows.Forms.Padding(4)
         Me.SP_Button.Name = "SP_Button"
         Me.SP_Button.Size = New System.Drawing.Size(59, 29)
         Me.SP_Button.TabIndex = 18
@@ -245,7 +245,7 @@ Partial Class Form1
         'HR_Button
         '
         Me.HR_Button.Location = New System.Drawing.Point(292, 248)
-        Me.HR_Button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.HR_Button.Margin = New System.Windows.Forms.Padding(4)
         Me.HR_Button.Name = "HR_Button"
         Me.HR_Button.Size = New System.Drawing.Size(59, 29)
         Me.HR_Button.TabIndex = 19
@@ -255,7 +255,7 @@ Partial Class Form1
         'RR_Button
         '
         Me.RR_Button.Location = New System.Drawing.Point(337, 358)
-        Me.RR_Button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RR_Button.Margin = New System.Windows.Forms.Padding(4)
         Me.RR_Button.Name = "RR_Button"
         Me.RR_Button.Size = New System.Drawing.Size(59, 29)
         Me.RR_Button.TabIndex = 20
@@ -264,8 +264,8 @@ Partial Class Form1
         '
         'ComSend
         '
-        Me.ComSend.Location = New System.Drawing.Point(411, 494)
-        Me.ComSend.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComSend.Location = New System.Drawing.Point(420, 495)
+        Me.ComSend.Margin = New System.Windows.Forms.Padding(4)
         Me.ComSend.Name = "ComSend"
         Me.ComSend.Size = New System.Drawing.Size(59, 29)
         Me.ComSend.TabIndex = 21
@@ -278,7 +278,7 @@ Partial Class Form1
         'Graph_button
         '
         Me.Graph_button.Location = New System.Drawing.Point(353, 42)
-        Me.Graph_button.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Graph_button.Margin = New System.Windows.Forms.Padding(4)
         Me.Graph_button.Name = "Graph_button"
         Me.Graph_button.Size = New System.Drawing.Size(93, 41)
         Me.Graph_button.TabIndex = 22
@@ -288,7 +288,7 @@ Partial Class Form1
         'reload
         '
         Me.reload.Location = New System.Drawing.Point(603, 492)
-        Me.reload.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.reload.Margin = New System.Windows.Forms.Padding(4)
         Me.reload.Name = "reload"
         Me.reload.Size = New System.Drawing.Size(87, 32)
         Me.reload.TabIndex = 23
@@ -299,7 +299,7 @@ Partial Class Form1
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Location = New System.Drawing.Point(356, 101)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(123, 19)
         Me.CheckBox1.TabIndex = 24
@@ -310,7 +310,7 @@ Partial Class Form1
         '
         Me.ComboBoxControlType.FormattingEnabled = True
         Me.ComboBoxControlType.Location = New System.Drawing.Point(139, 304)
-        Me.ComboBoxControlType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBoxControlType.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBoxControlType.Name = "ComboBoxControlType"
         Me.ComboBoxControlType.Size = New System.Drawing.Size(137, 23)
         Me.ComboBoxControlType.TabIndex = 25
@@ -328,7 +328,7 @@ Partial Class Form1
         'ControlTypeButton
         '
         Me.ControlTypeButton.Location = New System.Drawing.Point(292, 300)
-        Me.ControlTypeButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ControlTypeButton.Margin = New System.Windows.Forms.Padding(4)
         Me.ControlTypeButton.Name = "ControlTypeButton"
         Me.ControlTypeButton.Size = New System.Drawing.Size(59, 29)
         Me.ControlTypeButton.TabIndex = 27
@@ -358,8 +358,8 @@ Partial Class Form1
         'PIDTextBox
         '
         Me.PIDTextBox.HidePromptOnLeave = True
-        Me.PIDTextBox.Location = New System.Drawing.Point(139, 431)
-        Me.PIDTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PIDTextBox.Location = New System.Drawing.Point(139, 432)
+        Me.PIDTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PIDTextBox.Name = "PIDTextBox"
         Me.PIDTextBox.Size = New System.Drawing.Size(209, 22)
         Me.PIDTextBox.TabIndex = 32
@@ -367,7 +367,7 @@ Partial Class Form1
         'PIDButton
         '
         Me.PIDButton.Location = New System.Drawing.Point(356, 428)
-        Me.PIDButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PIDButton.Margin = New System.Windows.Forms.Padding(4)
         Me.PIDButton.Name = "PIDButton"
         Me.PIDButton.Size = New System.Drawing.Size(59, 29)
         Me.PIDButton.TabIndex = 38
@@ -412,7 +412,7 @@ Partial Class Form1
         Me.Controls.Add(Me.ChannelBText)
         Me.Controls.Add(Me.ChannelAText)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
         Me.Text = "TemperatureController"
         Me.ResumeLayout(False)
