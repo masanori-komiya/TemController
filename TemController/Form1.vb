@@ -131,7 +131,7 @@ Public Class Form1
     Private Sub HR_Button_Click(sender As Object, e As EventArgs) Handles HR_Button.Click
         Dim selectedRange As String = Me.ComboBox1.SelectedItem.ToString()
         Dim rangeValue As Integer = GetHeaterRangeValue(selectedRange)
-        Me.s2 = String.Concat("RANGE 1,", Me.ComboBox1.SelectedItem.ToString, "\n")
+        Me.s2 = String.Concat("RANGE 1,", rangeValue, "\n")
         Me.SendMSG(Me.s2)
     End Sub
 
