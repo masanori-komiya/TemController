@@ -123,7 +123,7 @@ Public Class Form2
     Private Sub Chart1_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart1.MouseMove
         ' マウスの位置を取得
         Dim result As HitTestResult = Chart1.HitTest(e.X, e.Y)
-
+        'データポイントをToolTipに表示
         If result.ChartElementType = ChartElementType.DataPoint Then
             Dim point As DataPoint = Chart1.Series(result.Series.Name).Points(result.PointIndex)
             Dim xValue As DateTime = DateTime.FromOADate(point.XValue)

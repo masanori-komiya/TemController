@@ -104,13 +104,31 @@ Public Class Form1
         Me.ChannelAText.Text = Me.ChannelA
         Me.ChannelBText.Text = Me.ChannelB
         Me.PowerText.Text = Me.Power
+
         ' HeaterRangeの数値を対応するテキストに変換して表示
         Dim heaterRangeValue As Integer
         If Integer.TryParse(Me.HeaterRange.Trim(), heaterRangeValue) Then
             Me.ComboBox1.Text = GetHeaterRangeText(heaterRangeValue)
         End If
+
         Me.ControlTypeText.Text = Me.ControlType
-        Me.RampText.Text = Me.Ramp
+
+        ' Rampの値に応じてボタンのテキストと色を更新
+        If Me.Ramp.Trim().StartsWith("1") Then
+            Me.RampONOFF.Text = "ON"
+            Me.RampONOFF.BackColor = Color.LightGreen
+        Else
+            Me.RampONOFF.Text = "OFF"
+            Me.RampONOFF.BackColor = SystemColors.Control
+        End If
+        ' Me.Rampの先頭2文字を除いた文字列をMe.RampText.Textに代入する
+        If Me.Ramp.Length > 2 Then
+            Me.RampText.Text = Me.Ramp.Substring(2).Trim()
+        Else
+            ' Me.Rampの長さが2以下の場合、空の文字列を代入
+            Me.RampText.Text = String.Empty
+        End If
+
         Me.SetPointText.Text = Me.SetPoint
         Me.PIDTextBox.Text = Me.PID
     End Sub
@@ -135,11 +153,17 @@ Public Class Form1
     End Sub
 
     Private Sub RR_Button_Click(sender As Object, e As EventArgs) Handles RR_Button.Click
-        Me.s3 = String.Concat("RAMP 1,", Me.RampText.Text, "\n")
-        Me.SendMSG(Me.s3)
+        If Me.Ramp.Trim().StartsWith("1") Then
+            Me.s3 = String.Concat("RAMP 1,1,", Me.RampText.Text, "\n")
+            Me.SendMSG(Me.s3)
+        Else
+            Me.s3 = String.Concat("RAMP 1,0,", Me.RampText.Text, "\n")
+            Me.SendMSG(Me.s3)
+        End If
     End Sub
+
     Private Sub ControlTypeButton_Click(sender As Object, e As EventArgs) Handles ControlTypeButton.Click
-        Me.s3 = String.Concat("OUTMODE 1,", Me.ControlTypeText.Text, "\n")
+        Me.s4 = String.Concat("OUTMODE 1,", Me.ControlTypeText.Text, "\n")
         Me.SendMSG(Me.s4)
     End Sub
 
@@ -149,8 +173,21 @@ Public Class Form1
         Me.SendMSG(Me.s5)
     End Sub
 
+    Private Sub ONOFFButton_Click(sender As Object, e As EventArgs) Handles RampONOFF.Click
+        '一文字目が0または1でon/off切り替え
+        If Me.Ramp.Trim().StartsWith("0") Then
+            Me.s3 = String.Concat("RAMP 1,1,", Me.RampText.Text, "\n")
+            Me.SendMSG(Me.s3)
+        Else
+            Me.s3 = String.Concat("RAMP 1,0,", Me.RampText.Text, "\n")
+            Me.SendMSG(Me.s3)
+        End If
+    End Sub
+
+
 
     Private Sub SendMSG(msg)
+        '送信した後リフレッシュ
         Try
             Me.CTC.WriteString(msg)
             MessageBox.Show($"設定を送信しました。{vbCrLf} {msg}")
@@ -160,9 +197,6 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
-
-    End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Try
@@ -217,7 +251,7 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub reload_Click(sender As Object, e As EventArgs) Handles reload.Click
+    Private Sub Reload_Click(sender As Object, e As EventArgs) Handles reload.Click
         Me.Form1_Refresh()
     End Sub
 

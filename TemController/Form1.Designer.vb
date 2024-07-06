@@ -57,6 +57,7 @@ Partial Class Form1
         Me.PIDTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.PIDButton = New System.Windows.Forms.Button()
         Me.ControlTypeText = New System.Windows.Forms.TextBox()
+        Me.RampONOFF = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ChannelAText
@@ -372,11 +373,21 @@ Partial Class Form1
         Me.ControlTypeText.Size = New System.Drawing.Size(137, 22)
         Me.ControlTypeText.TabIndex = 39
         '
+        'RampONOFF
+        '
+        Me.RampONOFF.Location = New System.Drawing.Point(403, 358)
+        Me.RampONOFF.Name = "RampONOFF"
+        Me.RampONOFF.Size = New System.Drawing.Size(57, 29)
+        Me.RampONOFF.TabIndex = 40
+        Me.RampONOFF.Text = "O/F"
+        Me.RampONOFF.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(748, 641)
+        Me.Controls.Add(Me.RampONOFF)
         Me.Controls.Add(Me.ControlTypeText)
         Me.Controls.Add(Me.PIDButton)
         Me.Controls.Add(Me.PIDTextBox)
@@ -451,4 +462,5 @@ Partial Class Form1
     Friend WithEvents PIDTextBox As MaskedTextBox
     Friend WithEvents PIDButton As Button
     Friend WithEvents ControlTypeText As TextBox
+    Friend WithEvents RampONOFF As Button
 End Class
