@@ -22,6 +22,7 @@ Partial Class Form2
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
@@ -38,6 +39,7 @@ Partial Class Form2
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -51,7 +53,7 @@ Partial Class Form2
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(5, 5)
-        Me.Chart1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Chart1.Margin = New System.Windows.Forms.Padding(4)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
@@ -64,7 +66,7 @@ Partial Class Form2
         'UpdateGraphButton
         '
         Me.UpdateGraphButton.Location = New System.Drawing.Point(328, 466)
-        Me.UpdateGraphButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.UpdateGraphButton.Margin = New System.Windows.Forms.Padding(4)
         Me.UpdateGraphButton.Name = "UpdateGraphButton"
         Me.UpdateGraphButton.Size = New System.Drawing.Size(119, 46)
         Me.UpdateGraphButton.TabIndex = 1
@@ -85,7 +87,7 @@ Partial Class Form2
         'ManualButton
         '
         Me.ManualButton.Location = New System.Drawing.Point(871, 76)
-        Me.ManualButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ManualButton.Margin = New System.Windows.Forms.Padding(4)
         Me.ManualButton.Name = "ManualButton"
         Me.ManualButton.Size = New System.Drawing.Size(95, 36)
         Me.ManualButton.TabIndex = 3
@@ -95,7 +97,7 @@ Partial Class Form2
         'AutoButton
         '
         Me.AutoButton.Location = New System.Drawing.Point(871, 124)
-        Me.AutoButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.AutoButton.Margin = New System.Windows.Forms.Padding(4)
         Me.AutoButton.Name = "AutoButton"
         Me.AutoButton.Size = New System.Drawing.Size(95, 36)
         Me.AutoButton.TabIndex = 4
@@ -109,7 +111,7 @@ Partial Class Form2
         Me.Panel1.Controls.Add(Me.RadioButton2)
         Me.Panel1.Controls.Add(Me.RadioButton1)
         Me.Panel1.Location = New System.Drawing.Point(871, 255)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(133, 129)
         Me.Panel1.TabIndex = 5
@@ -128,7 +130,7 @@ Partial Class Form2
         '
         Me.RadioButton3.AutoSize = True
         Me.RadioButton3.Location = New System.Drawing.Point(7, 82)
-        Me.RadioButton3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton3.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.Size = New System.Drawing.Size(97, 19)
         Me.RadioButton3.TabIndex = 2
@@ -140,7 +142,7 @@ Partial Class Form2
         '
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Location = New System.Drawing.Point(7, 48)
-        Me.RadioButton2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton2.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(66, 19)
         Me.RadioButton2.TabIndex = 1
@@ -152,7 +154,7 @@ Partial Class Form2
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Location = New System.Drawing.Point(7, 12)
-        Me.RadioButton1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RadioButton1.Margin = New System.Windows.Forms.Padding(4)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(66, 19)
         Me.RadioButton1.TabIndex = 0
@@ -184,7 +186,7 @@ Partial Class Form2
         Me.Controls.Add(Me.UpdateGraphButton)
         Me.Controls.Add(Me.Chart1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form2"
         Me.Text = "TemperatureGraph"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -207,4 +209,5 @@ Partial Class Form2
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

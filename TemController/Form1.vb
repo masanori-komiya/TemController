@@ -109,7 +109,7 @@ Public Class Form1
         If Integer.TryParse(Me.HeaterRange.Trim(), heaterRangeValue) Then
             Me.ComboBox1.Text = GetHeaterRangeText(heaterRangeValue)
         End If
-        Me.ComboBoxControlType.Text = Me.ControlType
+        Me.ControlTypeText.Text = Me.ControlType
         Me.RampText.Text = Me.Ramp
         Me.SetPointText.Text = Me.SetPoint
         Me.PIDTextBox.Text = Me.PID
@@ -117,7 +117,6 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ComboBox1.Items.AddRange(Me.strItem)
-        Me.ComboBoxControlType.Items.AddRange(Me.ControlTypeItem)
         Me.Form1_Refresh()
         Me.Timer1.Interval = TimerInterval
         Me.Timer1.Start()
@@ -140,7 +139,7 @@ Public Class Form1
         Me.SendMSG(Me.s3)
     End Sub
     Private Sub ControlTypeButton_Click(sender As Object, e As EventArgs) Handles ControlTypeButton.Click
-        Me.s3 = String.Concat("OUTMODE 1,", Me.RampText.Text, "\n")
+        Me.s3 = String.Concat("OUTMODE 1,", Me.ControlTypeText.Text, "\n")
         Me.SendMSG(Me.s4)
     End Sub
 

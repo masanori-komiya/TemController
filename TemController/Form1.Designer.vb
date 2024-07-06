@@ -50,13 +50,13 @@ Partial Class Form1
         Me.Graph_button = New System.Windows.Forms.Button()
         Me.reload = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.ComboBoxControlType = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.ControlTypeButton = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.PIDTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.PIDButton = New System.Windows.Forms.Button()
+        Me.ControlTypeText = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'ChannelAText
@@ -306,15 +306,6 @@ Partial Class Form1
         Me.CheckBox1.Text = "温度データ保存"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
-        'ComboBoxControlType
-        '
-        Me.ComboBoxControlType.FormattingEnabled = True
-        Me.ComboBoxControlType.Location = New System.Drawing.Point(139, 304)
-        Me.ComboBoxControlType.Margin = New System.Windows.Forms.Padding(4)
-        Me.ComboBoxControlType.Name = "ComboBoxControlType"
-        Me.ComboBoxControlType.Size = New System.Drawing.Size(137, 23)
-        Me.ComboBoxControlType.TabIndex = 25
-        '
         'Label12
         '
         Me.Label12.AutoSize = True
@@ -374,18 +365,25 @@ Partial Class Form1
         Me.PIDButton.Text = "Set"
         Me.PIDButton.UseVisualStyleBackColor = True
         '
+        'ControlTypeText
+        '
+        Me.ControlTypeText.Location = New System.Drawing.Point(139, 306)
+        Me.ControlTypeText.Name = "ControlTypeText"
+        Me.ControlTypeText.Size = New System.Drawing.Size(137, 22)
+        Me.ControlTypeText.TabIndex = 39
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(748, 641)
+        Me.Controls.Add(Me.ControlTypeText)
         Me.Controls.Add(Me.PIDButton)
         Me.Controls.Add(Me.PIDTextBox)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.ControlTypeButton)
         Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.ComboBoxControlType)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.reload)
         Me.Controls.Add(Me.Graph_button)
@@ -446,11 +444,11 @@ Partial Class Form1
     Friend WithEvents Graph_button As Button
     Friend WithEvents reload As Button
     Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents ComboBoxControlType As ComboBox
     Friend WithEvents Label12 As Label
     Friend WithEvents ControlTypeButton As Button
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents PIDTextBox As MaskedTextBox
     Friend WithEvents PIDButton As Button
+    Friend WithEvents ControlTypeText As TextBox
 End Class

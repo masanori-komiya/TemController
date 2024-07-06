@@ -4,13 +4,13 @@ Imports TemController.Form1
 Imports TemController.Form3
 Imports System.IO
 Imports System.Drawing.Text
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Public Class Form2
     '手動かオードかを区別するためのフラッグ、初期はオート
     Private Flag As Integer = 0
     Public Max As Double
     Public Min As Double
     Private LastTime As DateTime
-
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Chartのフォーマットを設定
@@ -120,5 +120,16 @@ Public Class Form2
         Chart1.ChartAreas(0).AxisX.Minimum = Double.NaN
         Chart1.ChartAreas(0).AxisX.Maximum = Double.NaN
     End Sub
+    Private Sub Chart1_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart1.MouseMove
+        ' マウスの位置を取得
+        Dim result As HitTestResult = Chart1.HitTest(e.X, e.Y)
 
+        If result.ChartElementType = ChartElementType.DataPoint Then
+            Dim point As DataPoint = Chart1.Series(result.Series.Name).Points(result.PointIndex)
+            Dim xValue As DateTime = DateTime.FromOADate(point.XValue)
+            ToolTip1.SetToolTip(Chart1, String.Format("時刻:{0}, 温度:{1:F3}", xValue.ToString("HH:mm:ss"), point.YValues(0)))
+        Else
+            ToolTip1.SetToolTip(Chart1, String.Empty)
+        End If
+    End Sub
 End Class
