@@ -121,4 +121,16 @@ Public Class Form2
         Chart1.ChartAreas(0).AxisX.Maximum = Double.NaN
     End Sub
 
+    Private Sub Chart1_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart1.MouseMove
+        ' マウスの位置を取得
+        Dim result As HitTestResult = Chart1.HitTest(e.X, e.Y)
+        'データポイントをToolTipに表示
+        If result.ChartElementType = ChartElementType.DataPoint Then
+            Dim point As DataPoint = Chart1.Series(result.Series.Name).Points(result.PointIndex)
+            Dim xValue As DateTime = DateTime.FromOADate(point.XValue)
+            ToolTip1.SetToolTip(Chart1, String.Format("時刻:{0}, 温度:{1:F3}", xValue.ToString("HH:mm:ss"), point.YValues(0)))
+        Else
+            ToolTip1.SetToolTip(Chart1, String.Empty)
+        End If
+    End Sub
 End Class
